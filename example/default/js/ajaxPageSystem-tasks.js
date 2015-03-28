@@ -1,14 +1,13 @@
-
 /*
 	
-	onPageSystem - tasks
+	ajaxPageSystem - task
 	
 	
 	Christian Marienfeld
 	www.chrisland.de
 	
-	Version 1.3.0
-	https://github.com/chrisland/onePageOPStem
+	Version 1.3.1
+	https://github.com/chrisland/ajaxPageSystem
 	
 	
 	Licence MIT
@@ -24,7 +23,7 @@
 
 
 
-OPS.task = (function(){
+APS.task = (function(){
 	var tasks = {
 
 

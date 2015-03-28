@@ -1,4 +1,4 @@
-onePageSystem
+ajaxPageSystem
 ====================
 
 
@@ -10,11 +10,11 @@ onePageSystem
 
 ```html
 
-	<button class="pageBtn" data-page="2" data-task="">Open Page 2</button>
+	<button class="pageBtn" data-page="seite2" data-task="">Open Page 2</button>
 	
-	<div class="pageBtn" data-page="2" data-task="myFunc">Open Page 2 with task</button>
+	<div class="pageBtn" data-page="seite2" data-task="myFunc">Open Page 2 with task</button>
 	
-	<a class="pageBtn" data-page="2" data-task="myFunc" data-content="myData">Open Page 2 with task and content</button>
+	<a class="pageBtn" data-page="seite2" data-task="myFunc" data-content="myData">Open Page 2 with task and content</button>
 
 ```
 ---
@@ -42,20 +42,17 @@ You can also combine them.
 	</head
 	<body>
 		
-		<div class="page" id="page_1">Content Page 1</div>
-		<div class="page" id="page_2">Content Page 2</div>
-		<div class="page" id="page_3">Content Page 3</div>
+		<div class="" id="page">loading...</div>
 		
-		<script src="js/onPageSystem.min.js"></script>
-		<script src="js/onPageSystem-tasks.js"></script>
+		<script src="js/ajaxPageSystem.min.js"></script>
+		<script src="js/ajaxPageSystem-tasks.js"></script>
 		
 		<script>
 			window.onload = function() {
 				OPS.page.initialize({
-					start: '1',
+					start: 'seite1',
 					handler: 'pageBtn',
-					pages: 'page',
-					pagePrefix: 'page_'
+					container: 'page'
 				});
 			};
 		</script>
@@ -80,11 +77,11 @@ You can also combine them.
 	###### Example:
 	```javascript
 	{
-		start: '1'
+		start: 'seite1'
 	}
 	```
-	
-	opens <element id="{pagePrefix}1">
+
+
 
 * #### handler
 
@@ -101,36 +98,21 @@ You can also combine them.
 	}
 	```
 	
-* #### pages
+* #### container
 
 	@require: true<br /> 
 	@type: string<br /> 
 	@default: 'page'
 	
-	the class all your pages have
+	the master container for all templates
 
 	###### Example:
 	```javascript
 	{
-		pages: 'page'
+		container: 'page'
 	}
 	```
-	
-* #### pagePrefix
 
-	@require: false<br /> 
-	@type: string<br /> 
-	@default: ''
-	
-	the prefix all you page id begins<br /> 
-	this can be '' if you do not use a prefix
-
-	###### Example:
-	```javascript
-	{
-		pagePrefix: 'page_'
-	}
-	```
 	
 * #### mockupDebug
 
@@ -170,10 +152,9 @@ You can also combine them.
 		<script>
 			window.onload = function() {
 				OPS.page.initialize({
-					start: '1',
+					start: 'seite1',
 					handler: 'pageBtn',
-					pages: 'page',
-					pagePrefix: 'page_',
+					container: 'page',
 					mockupDebug: true,
 					mockup: {
 						'page_1': [
@@ -182,7 +163,7 @@ You can also combine them.
 								y: 50,
 								width: 30,
 								height: 5,
-								page: '2',
+								page: 'seite2',
 								task: 'myFunc',
 								content: 'myData',
 								title: 'Goto Page 2'
@@ -192,7 +173,7 @@ You can also combine them.
 								y: 60,
 								width: 30,
 								height: 5,
-								page: '3'
+								page: 'seite3'
 							}
 						],
 						'page_2': [
@@ -201,7 +182,7 @@ You can also combine them.
 								y: 20,
 								width: 10,
 								height: 5,
-								page: '3',
+								page: 'seite3',
 								title: 'Goto Page 3'
 							}
 						]

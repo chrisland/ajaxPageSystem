@@ -1,14 +1,14 @@
 
 /*
 	
-	onPageSystem
+	ajaxPageSystem
 	
 	
 	Christian Marienfeld
 	www.chrisland.de
 	
 	Version 1.3.1
-	https://github.com/chrisland/onePageOPStem
+	https://github.com/chrisland/ajaxPageSystem
 	
 	
 	Licence MIT
@@ -16,8 +16,8 @@
 */
 
 
-var OPS = OPS || {};
-OPS.page = (function(){
+var APS = APS || {};
+APS.page = (function(){
 	var options = {
 		handler: 'pageBtn',
 		displayStyle: 'block',
@@ -44,10 +44,10 @@ OPS.page = (function(){
 		}
 		
 		if ( lastopen ) {
-			OPS.page.changePageById(lastopen);
+			APS.page.changePageById(lastopen);
 		} else {
 			if (options.start) {
-				OPS.page.changePageById(options.start);
+				APS.page.changePageById(options.start);
 			}
 		}
 		return open;
@@ -122,12 +122,12 @@ OPS.page = (function(){
 				return false;
 			}
 			if (last.pageId) {
-				OPS.page.changePageById(last.pageId,last.pageTask,last.pageContent);				
+				APS.page.changePageById(last.pageId,last.pageTask,last.pageContent);				
 				kickLastPageHistory(2);
 			}
 			return true;	
-		} else if (OPS.task && OPS.task[task]) {
-			return OPS.task[task](pageId,content,e);
+		} else if (APS.task && APS.task[task]) {
+			return APS.task[task](pageId,content,e);
 		}
 		return true;
 	}
