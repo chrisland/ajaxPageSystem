@@ -1,0 +1,56 @@
+
+<!--
+
+	onePageSystem 
+	
+	
+	Christian Marienfeld
+	www.chrisland.de
+	
+	Version 1.3.1
+	https://github.com/chrisland/onePageSystem
+	
+	
+	Licence MIT
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>onPageSystem // www.chrisland.de</title>
+		
+		<link rel="stylesheet" href="css/style.css">
+		
+		<style>	
+			.page {
+				display: none;
+			}
+		</style>
+	</head>
+	
+	
+
+<body>
+	
+	<div class="" id="page">loading...</div>
+
+	<script src="js/jquery-1.11.2.min.js"></script>
+	
+	<script src="js/onPageSystem.min.js"></script>
+	<script src="js/onPageSystem-tasks.js"></script>
+	
+	<script>
+		window.onload = function() {
+			OPS.page.initialize({
+				start: 'seite1',
+				handler: 'pageBtn',
+				container: 'page',
+			});
+		};
+	</script>
+	
+</body>
+</html>
