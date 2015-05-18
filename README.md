@@ -49,7 +49,7 @@ You can also combine them.
 		
 		<script>
 			window.onload = function() {
-				OPS.page.initialize({
+				APS.page.initialize({
 					start: 'seite1',
 					handler: 'pageBtn',
 					container: 'page'
@@ -151,7 +151,7 @@ You can also combine them.
 	
 		<script>
 			window.onload = function() {
-				OPS.page.initialize({
+				APS.page.initialize({
 					start: 'seite1',
 					handler: 'pageBtn',
 					container: 'page',
