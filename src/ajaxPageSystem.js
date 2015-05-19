@@ -7,7 +7,7 @@
 	Christian Marienfeld
 	www.chrisland.de
 	
-	Version 1.3.1
+	Version 1.3.2
 	https://github.com/chrisland/ajaxPageSystem
 	
 	
@@ -91,6 +91,9 @@ APS.page = (function(){
 		var task = changeContent( null, pageTask, pageContent, pageId);
 		if (task) {
 			fadePageDom(pageId, function () {
+				if (typeof(task) === "function") {
+					task();
+				}
 				addBtnEventListener();
 				addPageHistory(pageId,pageTask,pageContent);
 			});
@@ -108,6 +111,9 @@ APS.page = (function(){
 		var task = changeContent( e, pageTask, pageContent, pageId );
 		if (task) {
 			fadePageDom(pageId, function () {
+				if (typeof(task) === "function") {
+					task();
+				}
 				addBtnEventListener();
 				addPageHistory(pageId,pageTask,pageContent);
 			});
@@ -132,8 +138,7 @@ APS.page = (function(){
 		return true;
 	}
 	fadePageDom = function (pageId, callback) {
-		
-		if (pageId) {
+				if (pageId) {
 			jQuery.ajax({
 		      url: 'tmpl/'+pageId+'.tpl',
 		      dataType: 'html',

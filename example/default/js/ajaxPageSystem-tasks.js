@@ -6,7 +6,7 @@
 	Christian Marienfeld
 	www.chrisland.de
 	
-	Version 1.3.1
+	Version 1.3.2
 	https://github.com/chrisland/ajaxPageSystem
 	
 	
