@@ -7,7 +7,7 @@
 	Christian Marienfeld
 	www.chrisland.de
 	
-	Version 1.3.2
+	Version 1.3.3
 	https://github.com/chrisland/ajaxPageSystem
 	
 	
@@ -30,10 +30,11 @@ APS.page = (function(){
 	lastopen = 0,
 	timerOverlay = 0,
 	pageHistory = [],
-	overlayDom = '#overlay',
+	overlayDom = 'overlay',
 	overlayPath = function (str) {
 		return	'url(img/overlay/'+str+'.svg)';
 	},
+	$_page = undefined,
 	$_pages = {},
 	initialize = function (opt) {
 		
@@ -42,6 +43,8 @@ APS.page = (function(){
 				options[i] = opt[i];
 			}
 		}
+		
+		$_page = document.getElementById(options.container);
 		
 		if ( lastopen ) {
 			APS.page.changePageById(lastopen);
@@ -97,8 +100,10 @@ APS.page = (function(){
 				addBtnEventListener();
 				addPageHistory(pageId,pageTask,pageContent);
 			});
-			
+			return true;
 		}
+		//addBtnEventListener();
+		
 		return false;
 	},
 	changePage = function (e) {
@@ -118,6 +123,8 @@ APS.page = (function(){
 				addPageHistory(pageId,pageTask,pageContent);
 			});
 		}
+		
+		//addBtnEventListener();
 		return false;
 	},
 	changeContent = function (e, task, content, pageId) {
@@ -133,7 +140,7 @@ APS.page = (function(){
 			}
 			return true;	
 		} else if (APS.task && APS.task[task]) {
-			return APS.task[task](pageId,content,e);
+			return APS.task[task](pageId,content,e,$_page);
 		}
 		return true;
 	}
@@ -145,7 +152,7 @@ APS.page = (function(){
 		      cache: false,
 		      success: function(data, status, response) {
 		        
-		        var $_page = document.getElementById(options.container);
+		        
 		        $_page.innerHTML = data;
 		        
 				if (options.mockup[pageId]) {
@@ -218,6 +225,7 @@ APS.page = (function(){
 	return {
 		initialize: initialize
 		,changePageById: changePageById
+		,clickEvents: addBtnEventListener
 		,openOverlay: openOverlay
 		,closeOverlay: closeOverlay
 	}
